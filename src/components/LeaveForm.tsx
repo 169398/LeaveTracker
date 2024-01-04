@@ -19,7 +19,6 @@ const LeaveForm: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-zinc-700">
-      <ModeToggle />
       <Head>
         <title>Leave Request Form</title>
         <meta name="description" content="Leave Request Form" />
