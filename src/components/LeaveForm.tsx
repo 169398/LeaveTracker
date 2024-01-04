@@ -17,13 +17,14 @@ const LeaveForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-zinc-700">
+      <ModeToggle />
       <Head>
         <title>Leave Request Form</title>
         <meta name="description" content="Leave Request Form" />
       </Head>
 
-      <main className="w-full max-w-lg p-8  rounded shadow-lg">
+      <main className="w-full max-w-lg p-8 bg-zinc-700 rounded shadow-lg">
         <h1 className="text-3xl font-bold mb-6 text-center">Leave Request Form</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <label htmlFor="startDate">Start Date:</label>
