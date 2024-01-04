@@ -16,15 +16,7 @@ export default async function Home() {
     <UserButton afterSignOutUrl='/' />
   </div>
 
-  {isAuth && (
-    <div className="flex justify-end p-4">
-      <Link href="/Sign-out">
-        <Button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">
-          SignOut
-        </Button>
-      </Link>
-    </div>
-  )}
+  
 
   <div className="fixed top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
     <h1 className="text-4xl font-bold mb-6">Welcome to Leave Tracker</h1>
