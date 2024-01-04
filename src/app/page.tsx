@@ -18,7 +18,7 @@ export default async function Home() {
 
   
 
-  <div className=" relative   top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
+  <div className=" absolute   top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
     <h1 className="text-4xl font-bold mb-6">Welcome to Leave Tracker</h1>
     <p className="mb-8">Track your team leave easily.</p>
   </div>
