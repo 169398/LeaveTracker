@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { ModeToggle } from '@/components/Theme';
 import { Button } from './ui/button';
+import { UserButton } from '@clerk/nextjs';
 
 const LeaveForm: React.FC = () => {
   // State for form fields
@@ -23,7 +24,9 @@ const LeaveForm: React.FC = () => {
         <title>Leave Request Form</title>
         <meta name="description" content="Leave Request Form" />
       </Head>
-
+      <div className="flex justify-end p-4">
+    <UserButton afterSignOutUrl='/' />
+  </div>
       <main className="w-full max-w-lg p-8 bg-zinc-700 rounded shadow-lg">
         <h1 className="text-3xl font-bold mb-6 text-center">Leave Request Form</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
