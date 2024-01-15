@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+ # Leave Request Form
+
+This is a simple leave request form built with React and Next.js. It allows employees to submit leave requests to their managers.
+
+## Features
+
+- Simple and easy-to-use interface
+- Form validation to ensure all required fields are filled
+- Ability to submit leave requests to a database
 
 ## Getting Started
 
-First, run the development server:
+To get started, clone the repository and install the dependencies:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+git clone https://github.com/username/leave-request-form
+cd leave-request-form
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once the dependencies are installed, you can run the development server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The development server will start on port 3000. You can access the leave request form at http://localhost:3000.
 
-## Learn More
+## Code Overview
 
-To learn more about Next.js, take a look at the following resources:
+The leave request form is a simple React component called `LeaveForm`. This component is responsible for handling the form submission and displaying any errors.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The form itself is made up of a number of input fields, including:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Name
+- Start date
+- End date
+- Reason for leave
 
-## Deploy on Vercel
+Each input field is validated to ensure that it is filled in correctly. For example, the start date and end date fields must be valid dates, and the reason for leave field must not be empty.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If all of the input fields are filled in correctly, the form will be submitted to the database. The database is a simple JSON file that is located in the `data` directory.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Conclusion
+
+This is a simple leave request form that can be easily customized to meet the needs of your organization. It is a great way to streamline the leave request process and make it easier for employees to submit leave requests.
+

@@ -7,9 +7,18 @@ import { UserButton, auth } from "@clerk/nextjs";
 import { SignUp } from '@clerk/nextjs';
 import LeaveForm from '@/components/LeaveForm';
 
+
+function handleSearch(query: string): Promise<void> {
+  // Implement your search logic here
+  console.log('Searching for:', query);
+  return Promise.resolve();
+}
 export default async function Home() {
   const { userId } = await auth();
   const isAuth = !!userId;
+
+
+     
 
   return (
     <div> <div className="flex justify-end p-4">
@@ -26,7 +35,9 @@ export default async function Home() {
   <ModeToggle />
 
   {isAuth ? (
-    <LeaveForm />
+      <>
+      <LeaveForm />
+    </>
   ) : (
     <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <Link href="/Sign-in">
