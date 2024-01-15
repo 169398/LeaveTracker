@@ -1,21 +1,45 @@
 "use client"
+
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { ModeToggle } from '@/components/Theme';
 import { Button } from './ui/button';
-import { UserButton } from '@clerk/nextjs';
 
 const LeaveForm: React.FC = () => {
-  // State for form fields
+  const [employeeName, setEmployeeName] = useState<string>('');
   const [startDate, setStartDate] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');
   const [reason, setReason] = useState<string>('');
 
-  // Function to handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', { startDate, endDate, reason });
+  
+    try {
+      const formattedStartDate = new Date(startDate).toISOString();
+      const formattedEndDate = new Date(startDate).toISOString();
+
+  
+      const response = await fetch('/api/submitLeave', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ employeeName, startDate: formattedStartDate, endDate:formattedEndDate, reason }),
+      });
+  
+      if (response.ok) {
+        console.log('Form data saved to the database');
+      } else {
+        console.error('Error saving form data to the database:', await response.json());
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
   };
+  
+
+  function handleSearch(query: string): Promise<void> {
+    throw new Error('Function not implemented.');
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-zinc-700">
@@ -23,10 +47,22 @@ const LeaveForm: React.FC = () => {
         <title>Leave Request Form</title>
         <meta name="description" content="Leave Request Form" />
       </Head>
-    
       <main className="w-full max-w-lg p-8 bg-zinc-700 rounded shadow-lg">
         <h1 className="text-3xl font-bold mb-6 text-center">Leave Request Form</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
+         
+           <label htmlFor="employeeName">Employee Name:</label>
+          <input
+            type="text"
+            id="employeeName"
+            value={employeeName}
+            onChange={(e) => setEmployeeName(e.target.value)}
+            required
+            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+
+          />
+
+
           <label htmlFor="startDate">Start Date:</label>
           <input
             type="date"
