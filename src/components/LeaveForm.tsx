@@ -1,4 +1,6 @@
 "use client"
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import React, { useState } from 'react';
 import Head from 'next/head';
@@ -27,11 +29,15 @@ const LeaveForm: React.FC = () => {
       });
   
       if (response.ok) {
-        console.log('Form data saved to the database');
+        toast.success('Leave form saved to the database succesfully', { position: toast.POSITION.TOP_CENTER });
       } else {
+        toast.error('Error saving form data to the database', { position: toast.POSITION.TOP_CENTER });
+
         console.error('Error saving form data to the database:', await response.json());
       }
     } catch (error) {
+      toast.error('Network error', { position: toast.POSITION.TOP_CENTER });
+
       console.error('Network error:', error);
     }
   };
@@ -44,11 +50,9 @@ const LeaveForm: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-zinc-700">
       <Head>
-        <title>Leave Request Form</title>
         <meta name="description" content="Leave Request Form" />
       </Head>
       <main className="w-full max-w-lg p-8 bg-zinc-700 rounded shadow-lg">
-        <h1 className="text-3xl font-bold mb-6 text-center">Leave Request Form</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
          
            <label htmlFor="employeeName">Employee Name:</label>
