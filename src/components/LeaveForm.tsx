@@ -101,6 +101,7 @@ const LeaveForm: React.FC = () => {
           </Button>
         </form>
       </main>
+            <ToastContainer position={toast.POSITION.TOP_CENTER} />
     </div>
   );
 };
