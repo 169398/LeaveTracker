@@ -8,11 +8,7 @@ import { SignUp } from '@clerk/nextjs';
 import LeaveForm from '@/components/LeaveForm';
 
 
-function handleSearch(query: string): Promise<void> {
-  // Implement your search logic here
-  console.log('Searching for:', query);
-  return Promise.resolve();
-}
+
 export default async function Home() {
   const { userId } = await auth();
   const isAuth = !!userId;
@@ -28,8 +24,7 @@ export default async function Home() {
   
 
   <div className=" absolute   top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
-    <h1 className="text-4xl font-bold mb-6">Welcome to Leave Tracker</h1>
-    <p className="mb-8">Track your team leave easily.</p>
+    <h2 className="text-4xl font-bold mb-6">Welcome to Leave Tracker</h2>
   </div>
 
   <ModeToggle />
