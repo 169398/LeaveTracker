@@ -36,7 +36,6 @@ const LeaveForm: React.FC = () => {
         console.error('Error saving form data to the database:', await response.json());
       }
     } catch (error) {
-      toast.error('Network error', { position: toast.POSITION.TOP_CENTER });
 
       console.error('Network error:', error);
     }
