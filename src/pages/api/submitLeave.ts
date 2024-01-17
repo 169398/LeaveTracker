@@ -1,6 +1,5 @@
 
 
-// pages/api/submitLeave.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/lib/prisma';
 
@@ -18,7 +17,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
       });
 
-      // Create a leave associated with the created employee
       const leave = await prisma.leave.create({
         data: {
           startDate,

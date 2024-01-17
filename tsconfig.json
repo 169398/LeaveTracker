@@ -13,6 +13,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    
+      "typeRoots": [
+        "./typings",
+        "./node_modules/@types/"
+      ],
+    
     "plugins": [
       {
         "name": "next"
