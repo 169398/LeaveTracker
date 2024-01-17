@@ -1,10 +1,12 @@
 "use client"
+
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { Button } from './ui/button';
+import Search from './search';
 
 const LeaveForm: React.FC = () => {
   const [employeeName, setEmployeeName] = useState<string>('');
@@ -42,69 +44,63 @@ const LeaveForm: React.FC = () => {
   };
   
 
-  function handleSearch(query: string): Promise<void> {
-    throw new Error('Function not implemented.');
-  }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-700">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-700">
       <Head>
         <meta name="description" content="Leave Request Form" />
       </Head>
-      <main className="w-full max-w-lg p-8 bg-zinc-700 rounded shadow-lg">
-        <form onSubmit={handleSubmit} className="space-y-4">
-         
-           <label htmlFor="employeeName">Employee Name:</label>
-          <input
-            type="text"
-            id="employeeName"
-            value={employeeName}
-            onChange={(e) => setEmployeeName(e.target.value)}
-            required
-            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+      <div className="w-full max-w-lg flex flex-col items-center">
+        <main className="w-full p-8 bg-zinc-700 rounded shadow-lg">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <Search/>
+            <label htmlFor="employeeName">Employee Name:</label>
+            <input
+              type="text"
+              id="employeeName"
+              value={employeeName}
+              onChange={(e) => setEmployeeName(e.target.value)}
+              required
+              className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
 
-          />
+            />
 
+            <label htmlFor="startDate">Start Date:</label>
+            <input
+              type="date"
+              id="startDate"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              required
+              className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+            />
 
-          <label htmlFor="startDate">Start Date:</label>
-          <input
-            type="date"
-            id="startDate"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            required
-            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
-          />
+            <label htmlFor="endDate">End Date:</label>
+            <input
+              type="date"
+              id="endDate"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              required
+              className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+            />
 
-          <label htmlFor="endDate">End Date:</label>
-          <input
-            type="date"
-            id="endDate"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            required
-            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
-          />
+            <label htmlFor="reason">Reason:</label>
+            <textarea
+              id="reason"
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              required
+              className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
+            ></textarea>
 
-          <label htmlFor="reason">Reason:</label>
-          <textarea
-            id="reason"
-            value={reason}
-            onChange={(e) => setReason(e.target.value)}
-            required
-            className="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-500"
-          ></textarea>
-
-          <Button className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
-            Submit
-          </Button>
-        </form>
-      </main>
-
+            <Button className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
+              Submit
+            </Button>
+          </form>
+        </main>
+      </div>
       <ToastContainer position={toast.POSITION.TOP_CENTER} />
-
-           
-
     </div>
   );
 };
